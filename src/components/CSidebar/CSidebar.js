@@ -6,22 +6,31 @@ const { SubMenu } = Menu;
 function CSidebar({ routes }) {
     return (
         <div className="c-sidebar">
-            {routes.map((menu, index) => {
-                return (
-                    <Link
-                        key={index}
-                        // onClick={close}
-                        to={menu.path}
-                        className="c-menu-item"
-                    // className={`${checkActiveClass(currentPathName, menu.path)}`}
-                    >
-                        {/* {menu.icon ? <img src={menu.icon} alt="" /> : null} */}
-                        <p className="title">{menu.title}</p>
-                    </Link>
-                );
-            })}
+            <div className="menu">
+                {routes.map((menu, index) => {
+                    return (
+                        <Link
+                            key={index}
+                            // onClick={close}
+                            to={menu.path}
+                            className="c-menu-item"
+                        // className={`${checkActiveClass(currentPathName, menu.path)}`}
+                        >
+                            {/* {menu.icon ? <img src={menu.icon} alt="" /> : null} */}
+                            <p className="title">{menu.title}</p>
+                        </Link>
+                    );
+                })}
+            </div>  
+            <div className="bottom-container">
+                <Link>
+                    <p className="title">
+                        BETA Feedback
+                    </p>
+                </Link>
+            </div>
         </div>
-      
+
     )
 }
 

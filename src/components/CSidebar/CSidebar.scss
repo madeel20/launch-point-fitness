@@ -3,21 +3,28 @@
     background-color: $white;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     margin: 0px;
     padding: 20px 0px 0px 20px;
     border-right: 2px solid $primary;
     position: relative;
-    left: 0px;
-    top: 0px;
-    height: 100vh;
+    // left: 0px;
+    // top: 98px;
+    height: calc(100vh - 100px);
     overflow-y: auto;
     .menu{
-        
+        .c-menu-item{
+            display: flex;
+            justify-content: start;
+            padding: 0px 0px 0px 10px;
+            margin-bottom: 5px;
+            p{
+                margin: 0px !important;
+            }
+        }
     }
-    .c-menu-item{
-        display: flex;
-        justify-content: start;
-        padding: 0px 0px 0px 10px;
+    .bottom-container{
+       display: flex;
+       justify-content: center;
     }
 }
