@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import LoginPage from './pages/auth/Login'
+import SignUp from './pages/auth/SignUp'
+import { auth } from './firebase';
+import { store } from "./store";
+import { Provider } from 'react-redux'
+import Layout from './layout/index'
 function App() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    auth.onAuthStateChanged(userAuth => {
+      if (userAuth) {
+        setUser(userAuth);
+      } else {
+        setUser(false);
+      }
+    });
+  }, []);
+  if (user === null) { return null }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Provider store={store}>
+          <Router>
+            <Switch>
+              {!user ? <Route path="/" component={Layout} /> :
+                <>
+                  <Route path="/" exact component={LoginPage} />
+                  <Route path="/sign-up" component={SignUp} />
+                </>
+              }
+            </Switch>
+          </Router>
+        </Provider>
     </div>
   );
 }
-
 export default App;

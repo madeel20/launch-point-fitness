@@ -1,0 +1,23 @@
+.c-sidebar {
+    width: 240px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 0px;
+    padding: 20px 0px 0px 20px;
+    border-right: 2px solid $primary;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    overflow-y: auto;
+    .menu{
+        
+    }
+    .c-menu-item{
+        display: flex;
+        justify-content: start;
+        padding: 0px 0px 0px 10px;
+    }
+}

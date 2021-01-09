@@ -1,0 +1,13 @@
+@import '../assets/scss/index.scss';
+@import '../components/index.scss';
+
+
+.c-layout{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .inner-container{
+        display: flex;
+        flex-direction: row;
+    }
+}
