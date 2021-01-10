@@ -1,0 +1,15 @@
+.c-media-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    p{
+        margin: 0px;
+    }
+    .pics-container{
+        width: 100%;
+        background-color: $backgroundColor;
+        border-radius: 5px;
+        border:1px solid $primary;
+        min-height: 100px;
+    }
+}

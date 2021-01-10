@@ -30,3 +30,23 @@
         }
     }
 }
+
+
+.services-tab{
+    margin-top: 20px;
+    .ant-tabs  {
+        .ant-tabs-nav-list{
+            .ant-tabs-tab{
+                &.ant-tabs-tab-active{
+                    background-color: $backgroundColor !important;
+                } 
+            }
+        }
+        .ant-tabs-tabpane-active{
+            background-color: $backgroundColor !important;
+        }
+        .ant-tabs-content-holder{
+            background-color: $backgroundColor !important;
+        }
+    }
+}

@@ -92,3 +92,15 @@ h1, h2, h3, h4, h5, h6 {
     width: 80px;
     text-align: left;
 }
+.ant-btn{
+  border-radius: 10px;
+  pad
+  &:active{
+    color: $primary;
+    border-color: $primary;
+  }
+  &:hover{
+    color: $primary;
+    border-color: $primary;
+  }
+}
