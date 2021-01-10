@@ -1,10 +1,11 @@
-
 html *
 {
    font-family: Arial !important;
 }
 body {
   background-color: $backgroundColor !important;
+  margin: 0px;
+  padding: 0px;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0px !important;
@@ -16,18 +17,21 @@ h1, h2, h3, h4, h5, h6 {
   }  
   .ant-tabs-nav-list{
     flex: 1;
-    justify-content: space-between;
+    justify-content: flex-start;
     .ant-tabs-tab{
       border: 1px solid black;
       border-radius: 5px;
-      padding: 3px 15px;
+      padding: 3px 10px;
       display: flex;
+      margin: 0px;
+      margin-left: 10px;
       justify-content: center;
-      width: 150px;
       border-bottom: none;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
-      margin: 0px;
+      &:first-of-type{
+        margin-left: 0px;
+      }
       &:hover{
         color: $primary;
       }
@@ -45,15 +49,46 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid $primary;
     background-color: $white;
     border-top: none;
+    padding: 20px 20px 0px 20px;
+    overflow-y: auto;
   }
-.ant-tabs-tabpane{
-  padding: 0px;
-  margin: 0px;
-}
-.ant-tabs-tabpane-active{
-  background-color: $white;
-}
+  .ant-tabs-tabpane{
+    padding: 0px;
+    margin: 0px;
+  }
+  .ant-tabs-tabpane-active{
+    background-color: $white;
+  }
 .ant-tabs-ink-bar {
   background: $primary !important;
 }
+}
+.ant-input {
+   border-radius: 5px;
+    border: 1px solid $primary;
+    background-color: $backgroundColor;
+}
+.ant-input-number{
+  border-radius: 5px;
+  border: 1px solid $primary;
+  background-color: $backgroundColor;
+  width: 100%;
+}
+.ant-select-selector{
+  border-radius: 5px !important;
+  border: 1px solid $primary !important;
+  background-color: $backgroundColor !important;
+}
+.ant-select{
+  width: 100% !important;
+}
+.ant-form-item{
+  margin-bottom: 0px;
+}
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before{
+  display: none;
+}
+.ant-form-item-label {
+    width: 80px;
+    text-align: left;
 }

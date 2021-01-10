@@ -1,0 +1,32 @@
+.buisness-info-form{
+    display: flex;
+    flex-direction: row;
+    .first-container{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        flex-grow: 3;
+        .sub-fields{
+            width: 320px;
+            align-self: flex-end;
+            .same-row-fields{
+                display: flex;
+                justify-content: space-between;
+                .zip-input{
+                    width: 100px;
+                }
+                .ant-form-item-label{
+                    width: auto !important;
+                }
+            }
+        }
+    }
+    .second-container{
+        flex-grow:1;
+        margin-left: 20px;
+        .logo{
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -6,7 +6,10 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 50px 10px 50px;
+        padding:0px 15px 0px 0px;
+        .logo{
+            width: 50px;
+        }
         .title{
             font-size: $heading-fontsize !important;
             font-style: italic;
@@ -30,6 +33,8 @@
         .first-inner-container{
             width: 220px;
             border-right: 2px solid $primary;
+            display: flex;
+             align-items: center;
             .title{
                 font-size: $heading-fontsize !important;
                 font-style: italic;

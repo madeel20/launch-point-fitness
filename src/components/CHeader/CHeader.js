@@ -1,12 +1,20 @@
 import React from 'react'
 import { SettingOutlined, AntCloudOutlined, BellOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Badge } from 'antd';
-
+import logo from '../../assets/images/logo.png'
+// const logo = require('../../assets/images/logo.png');
 function CHeader() {
     return (
         <div className="c-header">
             <div className="first-header">
-                <h1 className="title">Launch Point Fitness</h1>
+                <span className="d-flex flex-row align-items-center"> 
+                <img
+                src={logo}
+                alt=""
+                className="logo"
+                draggable="false" 
+            />
+                <h1 className="title ml-2">Launch Point Fitness</h1></span>
                 <div className="options-container">
                     <SettingOutlined />
                     <AntCloudOutlined />
