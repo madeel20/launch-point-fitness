@@ -8,8 +8,6 @@
     padding: 20px 0px 0px 20px;
     border-right: 2px solid $primary;
     position: relative;
-    // left: 0px;
-    // top: 98px;
     height: calc(100vh - 100px);
     overflow-y: auto;
     .menu{
@@ -21,9 +19,13 @@
             p{
                 margin: 0px !important;
             }
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: $primary;
+            }
         }
     }
-    .bottom-container{
+    .bottom-container {
        display: flex;
        justify-content: center;
     }

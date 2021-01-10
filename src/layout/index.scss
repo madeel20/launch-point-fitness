@@ -1,6 +1,6 @@
 @import '../assets/scss/index.scss';
 @import '../components/index.scss';
-
+@import '../pages/index.scss';
 
 .c-layout{
     display: flex;
@@ -9,5 +9,13 @@
     .inner-container{
         display: flex;
         flex-direction: row;
+        .content{
+            margin: 20px 20px 0px 20px;
+            padding:10px;
+            // border: 2px solid $primary;
+            // border-radius: 5px;
+            display: flex;
+            flex: 1;
+        }
     }
 }

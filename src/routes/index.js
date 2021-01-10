@@ -1,4 +1,4 @@
-import ProfileManager from "../pages/ProfileManager";
+import ProfileManager from "../pages/ProfileManager/ProfileManager";
 
 const  sampleComponent = ()=>{
     return (
