@@ -1,5 +1,5 @@
 import { firestore, database } from "./index";
-import {convertDBSnapshoptToArrayOfObject} from "../utils/helpers";
+import {convertDBSnapshoptToArrayOfObject, convertToArray} from "../utils/helpers";
 export const getCollection =async collection =>{
     return await firestore.collection(collection).get().then(res=>{
         return res.docs;
@@ -31,7 +31,7 @@ export const getCollectionByField = async (
     fieldValue,
 ) => {
     return await firestore
-        .collection(collection)
+        .collection(collection) 
         .where(fieldName, '==', fieldValue)
         .get()
         .then((res) => {

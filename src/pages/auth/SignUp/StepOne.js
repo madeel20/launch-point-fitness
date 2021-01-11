@@ -15,7 +15,7 @@ function StepOne({ onSubmit,initialValues }) {
             onFinish={onSubmit}
             initialValues={initialValues}
         >
-            <Form.Item label="Name" name="firstName" className="" rules={Rules.firstName}>
+            <Form.Item label="Name" name="buisnessName" className="" rules={Rules.firstName}>
                 <Input maxLength="40" placeholder="Name" />
             </Form.Item>
             <Form.Item label="Address" name="address" className="" >

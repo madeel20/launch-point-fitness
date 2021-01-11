@@ -5,10 +5,10 @@ import logo from '../../assets/images/logo.png';
 import { Menu, Dropdown, Button } from 'antd';
 import { auth } from '../../firebase';
 // const logo = require('../../assets/images/logo.png');
-function CHeader() {
+function CHeader({ currentPageName,buisnessName }) {
     const menu = (
         <Menu>
-            <Menu.Item onClick={()=>auth.signOut()}>
+            <Menu.Item onClick={() => auth.signOut()}>
                 <LogoutOutlined /> Sign Out
             </Menu.Item>
         </Menu>
@@ -38,8 +38,8 @@ function CHeader() {
             <div className="second-header">
                 <div className="first-inner-container"><h1 className="title">Fitness Pro</h1></div>
                 <div className="second-inner-container">
-                    <h1 className="title">Social Marketing Center</h1>
-                    <h1 className="title">KAVA YOGA</h1>
+                    <h1 className="title">{currentPageName}</h1>
+                    <h1 className="title">{buisnessName}</h1>
                 </div>
             </div>
         </div>

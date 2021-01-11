@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Layout } from 'antd';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { DashboardRoutes } from '../routes/index';
 import CSidebar from '../components/CSidebar/CSidebar';
 import './index.scss'
-
+import {Spin} from "antd";
 import CHeader from '../components/CHeader/CHeader';
-function index() {
+import { getUserData } from '../store/Actions/UsersActions';
+import { useDispatch, useSelector } from 'react-redux';
+function LayoutWrap() {
+    const location = useLocation();
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getUserData());
+    }, []);
+    const stateProps = useSelector(state => state.User);
+    const { data, loading } = stateProps;
     return (
+        <Spin spinning={loading}>
             <div className="c-layout">
-                <CHeader>Header</CHeader>
+                <CHeader currentPageName={DashboardRoutes.find(it => it.path === location.pathname)?.title} buisnessName={data?.buisnessName} />
                 <div className="inner-container">
                     <CSidebar routes={DashboardRoutes} />
                     <div className="content">
@@ -23,19 +33,13 @@ function index() {
                                 />
                             ))}
                             {/* <Redirect from="/" to="/dashboard" /> */}
-                            <Route
-                                path="*"
-                                render={() => (
-                                    <div>
-                                        <h1>Not Found</h1>
-                                    </div>
-                                )}
-                            />
+                            <Redirect from="*" to="/" />
                         </Switch>
                     </div>
                 </div>
             </div>
+        </Spin>
     )
 }
 
-export default index
+export default LayoutWrap

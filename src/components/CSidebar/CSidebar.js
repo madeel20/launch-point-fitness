@@ -23,7 +23,7 @@ function CSidebar({ routes }) {
                 })}
             </div>  
             <div className="bottom-container">
-                <Link>
+                <Link to="">
                     <p className="title">
                         BETA Feedback
                     </p>

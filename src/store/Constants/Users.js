@@ -1,4 +1,4 @@
 const Users = {
-    GET_ALL_USERS:'GET_ALL_USERS'
+    GET_USER_DATA:'GET_USER_DATA'
 }
 export default Users;

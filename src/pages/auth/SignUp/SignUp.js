@@ -9,17 +9,14 @@ import { states } from '../../../utils/Constants';
 import StepOne from './StepOne';
 import StepThree from './StepThree';
 import StepTwo from './StepTwo';
+import { getCollectionByField } from '../../../firebase/helpers';
 const { Option } = Select;
 
 export default function SignUp() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [step, setStep] = useState(0);
-
-    const [payload, setPayload] = useState({
-        password: '12345678',
-        confirmPassword: '12345678'
-    });
+    const [payload, setPayload] = useState({state:""});
     useEffect(() => {
         setError('');
     }, [payload])
@@ -32,24 +29,31 @@ export default function SignUp() {
     const handleSubmit = async (values) => {
         let data = { ...payload, email: values.email };
         delete data.logo
+        delete data.password
+        delete data.confirmPassword
         data = cleanPayload(data);
         setLoading(true);
-        auth.createUserWithEmailAndPassword(data.email, values.password).then(async parentRes => {
-            try {
-                let fireBaseUrl = '';
-                if (payload && payload.logo && payload.logo.file && payload.logo.file.originFileObj) {
-                    await storage.ref(`/images/${data.email}_logo`).put(payload.logo.file.originFileObj);
-                    fireBaseUrl = await storage.ref(`/images/${data.email}_logo`).getDownloadURL();
-                }
-                await firestore.collection('users').doc(parentRes.user.uid).set({ data, logoUrl: fireBaseUrl });
-            } catch (err) {
+        let usersRecord = await getCollectionByField('users', 'email', data.email);
+        if (usersRecord.length > 0) {
+            setError('A user is already registered with this email!');
+            return;
+        }
+        try {
+            let fireBaseUrl = '';
+            if (payload && payload.logo && payload.logo.file && payload.logo.file.originFileObj) {
+                await storage.ref(`/images/${data.email}_logo`).put(payload.logo.file.originFileObj);
+                fireBaseUrl = await storage.ref(`/images/${data.email}_logo`).getDownloadURL();
+            }
+            auth.createUserWithEmailAndPassword(data.email, values.password).then(async parentRes => {
+                await firestore.collection('users').doc(parentRes.user.uid).set({ ...data, logoUrl: fireBaseUrl });
+            }).catch(err => {
                 setError(err.message)
                 setLoading(false);
-            }
-        }).catch(err => {
+            });
+        } catch (err) {
             setError(err.message)
             setLoading(false);
-        });
+        }
     };
     const onStepBack = () => setStep(prevValue => prevValue - 1);
     const getCurrentSteps = () => {
@@ -70,7 +74,7 @@ export default function SignUp() {
             <div
                 name="profile_update"
                 className="bordered-container inner-container"
-            >   
+            >
                 <h3>Register</h3>
                 <hr />
                 {getCurrentSteps()}

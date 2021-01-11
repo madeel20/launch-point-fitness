@@ -26,7 +26,6 @@ function App() {
           <Switch>
             {user ? <>
               <Route path="/" component={Layout} />
-              <Redirect from="*" to="/" />
             </> :
               <>
                 <Route path="/" exact component={Welcome} />

@@ -2,7 +2,7 @@ import ProfileManager from "../pages/ProfileManager/ProfileManager";
 
 const  sampleComponent = ()=>{
     return (
-        <div> sample </div>
+        <div>  </div>
     )
 }
 export const DashboardRoutes =[
