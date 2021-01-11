@@ -37,3 +37,11 @@ export const getFormattedDate=(initialDate) =>{
 
     return str;
 }
+export const  cleanPayload = (obj)=> {
+    for (var propName in obj) {
+      if (obj[propName] === null || obj[propName] === undefined) {
+         obj[propName] = '';
+      }
+    }
+    return obj
+  }

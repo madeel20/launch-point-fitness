@@ -31,7 +31,7 @@ function BuisnessInformation() {
                     </Form.Item>
                     <div className="same-row-fields">
                         <Form.Item label="State" name="state" className="" >
-                            <Select size={"small"} defaultValue="" style={{ width: 200 }}>
+                            <Select size={"small"}  style={{ width: 200 }}>
                                 <Option value="">State</Option>
                             </Select>
                         </Form.Item>

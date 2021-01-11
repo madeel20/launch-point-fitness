@@ -1,7 +1,7 @@
 export const firstName = [
     {
         required: true,
-        message: 'Please enter your first name!',
+        message: 'Please enter name!',
     },
     {
         pattern: new RegExp(/^[a-zA-Z ]+$/i),
@@ -72,12 +72,13 @@ export const monthlyRatesRule = [
         message: 'Please enter your monthly rates!',
     },
 ];
-export const passwordRule = [
+export const passwordRule =confirmPassword=> [
     {
         required: true,
-        message: 'Please enter password!',
+        message: 'Please input your password!',
     },
-    { min: 8, message: 'please enter at least 8 digit password!' },
+    {min: 8, message: 'please enter at least 8 digit password!'},
+    {validator: confirmPassword},
 ];
 export const newPasswordRule = (validatePassword) => [
     {
